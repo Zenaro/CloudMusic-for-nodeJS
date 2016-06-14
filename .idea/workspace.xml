@@ -16,20 +16,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/Home/src/js/index/main.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/Home/src/less/frame.less" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/Home/src/less/index.less" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/db.js" afterPath="$PROJECT_DIR$/conf/db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/musicDao.js" afterPath="$PROJECT_DIR$/dao/musicDao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/musicSqlMapping.js" afterPath="$PROJECT_DIR$/dao/musicSqlMapping.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/newsDao.js" afterPath="$PROJECT_DIR$/dao/newsDao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/newsSqlMapping.js" afterPath="$PROJECT_DIR$/dao/newsSqlMapping.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/userDao.js" afterPath="$PROJECT_DIR$/dao/userDao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/userSqlMapping.js" afterPath="$PROJECT_DIR$/dao/userSqlMapping.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users.js" afterPath="$PROJECT_DIR$/routes/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/util.js" afterPath="$PROJECT_DIR$/util/util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Home/login.html" afterPath="$PROJECT_DIR$/views/Home/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Home/reg.html" afterPath="$PROJECT_DIR$/views/Home/reg.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Home/result.html" afterPath="$PROJECT_DIR$/views/Home/result.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="node.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,8 +72,8 @@
       <file leaf-file-name="dialog.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/home/js/common/dialog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+            <state relative-caret-position="135">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -221,8 +208,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="782" />
-    <option name="y" value="154" />
+    <option name="x" value="651" />
+    <option name="y" value="170" />
     <option name="width" value="1460" />
     <option name="height" value="731" />
   </component>
@@ -266,20 +253,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="node" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -379,15 +352,15 @@
       <workItem from="1465812410527" duration="1357000" />
       <workItem from="1465813804072" duration="11640000" />
       <workItem from="1465825500412" duration="9517000" />
-      <workItem from="1465888578868" duration="20144000" />
+      <workItem from="1465888578868" duration="21374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48802000" />
+    <option name="totallyTimeSpent" value="50032000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="782" y="154" width="1460" height="731" extended-state="0" />
+    <frame x="651" y="170" width="1460" height="731" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.239358" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -695,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/home/js/common/dialog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+        <state relative-caret-position="135">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
