@@ -5,7 +5,6 @@
 
 - 对CloudMusic网站我又改了一遍，果然自己的网站才是真爱。这是nodeJS的版本~，欢迎大神们批评指正
 - 使用，安装nodeJS，express，然后cd进这个文件夹，运行node app.js命令即可，记得打开mysql服务，新建一个music数据库，然后导入music.sql文件。
-- 
 
 ![cloudmusic](http://7xstax.com1.z0.glb.clouddn.com/index-1.png)
 
