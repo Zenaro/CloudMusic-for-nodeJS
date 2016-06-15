@@ -117,16 +117,16 @@ define( function ( require, exports, module ) {
 
 			}, this.list ).on('click', this.liCOL, function() {
 
-				if ( !cookie('unique') ) {
+				if ( !$.cookie('unique') ) {
 					alert('您尚未登录');
 
 				} else {
 					var trgid = $(this).parents('li').attr('data-id');
 					$.get('/controller/colMusic', {
-						uid : cookie('unique'),
-						mid : trgid
-					}, function (result) {
-						alert(result);
+						uid: $.cookie('unique'),
+						mid: trgid
+					}, function (res) {
+						alert(res.info);
 					});
 				}
 
@@ -270,14 +270,8 @@ define( function ( require, exports, module ) {
 
 				}
 			}
-
-
 		}
-
-
 	};
-
-
 
 	//helpers
 
@@ -294,28 +288,19 @@ define( function ( require, exports, module ) {
 
 		} else if ( EVT.detail ) {	/*FireFox*/
 			delta = -EVT.detail / 3;
-
 		}
 
 		/* 禁用滚轮 */
 		if ( EVT.preventDefault ) {
 			EVT.preventDefault();
-
 		}
 		EVT.returnValue = false;
-
 
 		if ( delta > 0 ) {
 			return 1;		// do something
 
 		} else if ( delta < 0) {
 			return -1;		// do another thing
-
 		}
-
-
 	}
-
-
-
 });

@@ -56,7 +56,7 @@ define ( function ( require, exports, module ) {
 					},
 					success : function( response ) {
 						if (!response.err) {
-							cookie('unique', response.id);
+							$.cookie('unique', response.id);
 							window.location.href = './index';
 						} else {
 							$(self.tips).html('提交失败，请稍候重试');

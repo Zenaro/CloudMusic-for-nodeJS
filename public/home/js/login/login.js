@@ -14,13 +14,8 @@ define( function ( require, exports, module ) {
 	module.exports = Login;	
 
 	Login.prototype.render = function() {
-		this._init();
 		this._bindUI();
-	}
-
-	Login.prototype._init = function() {
-
-	}
+	};
 
 	Login.prototype._bindUI = function() {
 		var self = this;
@@ -42,11 +37,13 @@ define( function ( require, exports, module ) {
 					url : '/controller/checkLogin',
 					type : 'GET',
 					data : $('form').serialize(),
-					success : function( response, status, xhr ) {
-						if (response && response != 'false') {
-							cookie('unique', response);
-							console.log(response);
-							// window.location.href = './index';
+					beforeSend: function () {
+						$('form input[type=submit]').val('loading...').attr('disabled');
+					},
+					success : function( response ) {
+						if (response && response[0].id) {
+							$.cookie('unique', response[0].id);
+							window.location.href = './index';
 						} else {
 							$(self.tips).html('帐号与密码不匹配，请重新输入');
 						}

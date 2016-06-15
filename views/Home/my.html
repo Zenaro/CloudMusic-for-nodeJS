@@ -5,7 +5,7 @@
     <title>Lyric~音乐工厂</title>
     <link rel="stylesheet" href="/home/css/frame.css">
     <link rel="stylesheet" href="/home/css/music.css">
-    <link rel="stylesheet" href="/home/css/result.css">
+    <link rel="stylesheet" href="/home/css/my.css">
     <link rel="shortcut icon" type="image/x-icon" href="/images/sprite/favicon.ico" />
 </head>
 <body>
@@ -13,8 +13,8 @@
     <div class="header-center center">
         <h1>Lyric 音乐场</h1>
         <ul class="nav">
-            <li><a href="./index" class="active">发现音乐</a></li>
-            <li><a href="./my">我的音乐</a></li>
+            <li><a href="./index.html" class="active">发现音乐</a></li>
+            <li><a href="./my.html">我的音乐</a></li>
             <li><a href="javascript:;">热门专辑</a></li>
             <li><a href="javascript:;">在线好友</a></li>
         </ul>
@@ -25,11 +25,11 @@
                 <ul class="result"></ul>
             </div>
             <div class="top-user">
-                <a href="./login" class="user-login">登录</a>
+                <a href="./login.html" class="user-login">登录</a>
                 <div class="user-memb">
                     <h4>用户</h4>
                     <ul class="slide-down">
-                        <li><a href="./my">我的主页</a></li>
+                        <li><a href="./my.html">我的主页</a></li>
                         <li><a href="javascript:;" class="logout">退出</a></li>
                     </ul>
                 </div>
@@ -52,24 +52,31 @@
 
 <div class="wrap">
     <div class="wrap-in">
+        <div class="main-title column">
+            <div class="title-img"></div>
+            <div class="title-info">
+                <h3><span></span><input type="button" value="编辑个人资料"></h3>
+                <div class="sml sml-area">所在地区：广东省-汕头市</div>
+                <div class="sml sml-age">年龄：00后</div>
+            </div>
 
-        <div class="main">
-            <div class="main-title">
-                <h3>曲名</h3>
-                <span>作者</span>
-            </div>
-            <div class="content txtOF">
-                <!-- 歌词 -->
-            </div>
-            <a href="javascript:;" class="toggle">展开</a>
         </div>
-        <div class="comment">
-            <h2>听友评论</h2>
-            <div class="cell">
-                <textarea name="comment">发表评论</textarea>
-                <input type="submit" value="提交">
-            </div>
+
+        <div class="main-mlist column">
+            <h3>我的收藏</h3>
+            <ul></ul>
         </div>
+
+        <div class="main-mform column">
+            <h3>我的歌单</h3>
+            <ul></ul>
+        </div>
+
+        <div class="main-mfriend column">
+            <h3>我的好友</h3>
+            <ul></ul>
+        </div>
+
     </div>
 </div>
 
@@ -118,7 +125,8 @@
                     <div class="cur">
                         <div class="cur-inner">
                             <span class="btn-cur"><i></i></span>
-                        </div>
+                        </div>'
+                        <!-- <span class="btn-cur" id="data-cur"><i><</i></span> -->
                     </div>
                 </div>
                 <span class="clock"><i>00:00</i> / <em>00:00</em></span>
@@ -180,7 +188,7 @@
         }
     });
     //引入main.js
-    seajs.use('/home/js/result/main');
+    seajs.use('/home/js/my/main');
 
 </script>
 </body>

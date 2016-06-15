@@ -42,26 +42,26 @@ app.get('/controller/checkLogin', function (req, res) {
 app.get('/controller/checkReg', function (req, res) {
     userDao.checkReg(req, res);
 });
-app.get('/controller/getMusic', function (req, res) {
+app.get('/controller/myMusic', function (req, res) {
     userDao.getMusic(req, res);
 });
 app.get('/controller/colMusic', function (req, res) {
-    userDao.checkLogin(req, res);
+    userDao.colMusic(req, res);
 });
 app.get('/controller/delMusic', function (req, res) {
-    userDao.checkLogin(req, res);
+    userDao.delMusic(req, res);
 });
 app.get('/controller/getUInfo', function (req, res) {
     userDao.getInfo(req, res);
 });
 app.get('/controller/getFriend', function (req, res) {
-    userDao.getRank(req, res);
+    userDao.getFriend(req, res);
 });
 app.get('/controller/setFriend', function (req, res) {
-    userDao.getRank(req, res);
+    userDao.setFriend(req, res);
 });
 app.get('/controller/setComment', function (req, res) {
-    userDao.getRank(req, res);
+    userDao.setComment(req, res);
 });
 
 // music接口

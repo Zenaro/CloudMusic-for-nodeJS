@@ -13,8 +13,8 @@
     <div class="header-center center">
         <h1>Lyric 音乐场</h1>
         <ul class="nav">
-            <li><a href="./index.html" class="active">发现音乐</a></li>
-            <li><a href="./my.html">我的音乐</a></li>
+            <li><a href="./index" class="active">发现音乐</a></li>
+            <li><a href="./my">我的音乐</a></li>
             <li><a href="javascript:;">热门专辑</a></li>
             <li><a href="javascript:;">在线好友</a></li>
         </ul>
@@ -46,7 +46,7 @@
 <div class="wrap">
     <div class="wrap-in">
 
-        <form name="login" method="post" action="../controller/checkLogin.php">
+        <form name="login" method="get" action="/controller/checkLogin">
             <div class="title">
                 <h3>邮箱登录</h3>
             </div>
@@ -67,7 +67,7 @@
                 <input type="submit" value="登录">
             </div>
             <div class="bottom">
-                <a href="./reg.html">没有帐号？免费注册 > </a>
+                <a href="./reg">没有帐号？免费注册 > </a>
             </div>
         </form>
 
@@ -166,16 +166,17 @@
 </div>
 
 <script type="text/javascript" src="/seajs/sea.js"></script>
+<script type="text/javascript" src="/jquery/jquery.js"></script>
 <script type="text/javascript">
-
     //设置configuration
     seajs.config({
         base: "/",
         alias: {
-            "jquery" : "jquery/jquery.js"
+            "jquery": "jquery/jquery.js",
+            "jcookie": "jquery/jquery.cookie.js",
+            "pjax": "jquery/jquery-pjax.js"
         }
     });
-
     //引入main.js
     seajs.use('/home/js/login/main');
 

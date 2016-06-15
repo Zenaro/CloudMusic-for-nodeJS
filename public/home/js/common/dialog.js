@@ -1,7 +1,7 @@
 /*
 * 	登录、注册框
 */
-define( function ( require, exports, module ) {
+define(function ( require, exports, module ) {
 
 	function Dialog() {
 
@@ -17,22 +17,20 @@ define( function ( require, exports, module ) {
 		this.logout = '.header .top-tool .top-user  ul.slide-down a.logout';
 	}
 
-	module.exports = Dialog;	
+	module.exports = Dialog;
 
 	Dialog.prototype.render = function() {
 		this._init();
 		this._bindUI();
-
 	};
 
 	Dialog.prototype._init = function() {
 		var self = this;
 		this.index = -1;
-
-		if ( !!document.cookie && cookie('unique') != '') {
-			$.get('/controller/getUInfo', {id: cookie('unique')}, function( res ) {
+		if ( !!$.cookie('unique') && $.cookie('unique') != '') {
+			$.get('/controller/getUInfo', {id: $.cookie('unique')}, function( res ) {
 				$(self.memb).show();
-				$(self.user).html(res);
+				$(self.user).html(res[0].name);
 			});
 			$(this.login).hide();
 
@@ -107,10 +105,8 @@ define( function ( require, exports, module ) {
 			}
 			
 		}, this.memb ).on('click', this.logout, function () {
-			removeCookie('unique');
-			removeCookie('name');
+			$.removeCookie('unique');
 			history.go(0);
-
 		});
 
 	};

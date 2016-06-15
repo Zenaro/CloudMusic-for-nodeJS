@@ -84,35 +84,43 @@ define( function ( require, exports, module ) {
 			$(this).text('');
 
 		}).on('click', 'input[type=submit]', function() {
-
-			var html = '',
-				user_id = cookie('unique'),
-				txt = $.trim($('textarea').val());
-			$.get('/controller/setComment', {uid: user_id, mid: self.mid, com: txt}, function(res) {
-				if (res === 'ok') {
-					html += '<div class="cell" data-id="' + user_id +'">' +
-	            				'<p>' +
-	                				'<span class="user-name">' + $('.user-memb h4').text() + '：</span>' +
-	                				'<span class="user-comment">'+ txt + '</span>' +
-	            				'</p>' +
-	            				'<i class="btn-add"> + 加为好友</i>' +
-	        				'</div>';
-				}
-				$('.comment .cell').eq(0).after(html);
-				$('textarea').val('');
-			});
+			if (!$.cookie('unique') || $.cookie('unique') == '') {
+				alert('您尚未登录');
+			} else {
+				var html = '',
+					user_id = $.cookie('unique'),
+					txt = $.trim($('textarea').val());
+				$.get('/controller/setComment', {uid: user_id, mid: self.mid, com: txt}, function(res) {
+					if (res.status === 'succ') {
+						html += '<div class="cell" data-id="' + user_id +'">' +
+							'<p>' +
+							'<span class="user-name">' + $('.user-memb h4').text() + '：</span>' +
+							'<span class="user-comment">'+ txt + '</span>' +
+							'</p>' +
+							'<i class="btn-add"> + 加为好友</i>' +
+							'</div>';
+					} else {
+						alert(res.info);
+					}
+					$('.comment .cell').eq(0).after(html);
+					$('textarea').val('');
+				});
+			}
 
 		}).on('click', '.comment .cell i.btn-add', function() {
-			var my_id = cookie('unique'),
-				f_id = $(this).parent('.cell').attr('data-id');
-			$.get('/controller/setFriends', {uID: my_id, fID: f_id}, function(res) {
-				alert(res);
-			});
+			if (!$.cookie('unique') || $.cookie('unique') == '') {
+				alert('您尚未登录');
+			} else {
+				var my_id = $.cookie('unique'),
+					f_id = $(this).parent('.cell').attr('data-id');
+				$.get('/controller/setFriend', {uid: my_id, fid: f_id}, function(res) {
+					alert(res.info);
+				});
+			}
 		});
 
 		$('audio').on('timeupdate', function() {			// 歌词滚动
 			var length = self.lrc.length;
-			
 			if (this.currentTime >= self.lrc[lrc_i][0]) {
 				$('.main .content p').removeClass('active').eq(lrc_i).addClass('active');
 				lrc_i++;

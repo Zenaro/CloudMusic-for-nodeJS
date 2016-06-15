@@ -1,8 +1,6 @@
 define(function(require) {
 
-	var $ = require('jquery');
-
-	require('../common/cookie');
+	require('jcookie');
 
 	var Dialog = require('../common/dialog');
 	var d = new Dialog();

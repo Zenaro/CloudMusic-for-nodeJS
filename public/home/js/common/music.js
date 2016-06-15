@@ -35,9 +35,7 @@ define(function (require, exports, module) {
         })
     };
 
-
     /*  ---------- private -------- */
-
     // 事件绑定
     Player.prototype._bind = function() {
 
@@ -227,7 +225,6 @@ define(function (require, exports, module) {
                 $('.play-ctrl .cbar .cur').height(~~(self.audio.volume * 1000) / 10 + '%');
 
         }).on('ended', function() {
-
             if (self.audio.loop === false) {
                 var i = 0,
                     objList = $('.form-tab ul li'),
@@ -242,13 +239,16 @@ define(function (require, exports, module) {
 
                 self.loopType === 3 && (i = ~~ (Math.random() * length)); // 若需要随机播放
                 if (i >= length) i = 0;
-                self.init(objList.eq(i).attr('data-id'));
+                if (length > 0) {
+                    self.init(objList.eq(i).attr('data-id'));
+                } else {
+                    self.audio.pause();
+                }
             }
 
         }).on('seeking', function() {
             console.log('seeking');
         }).on('stalled', function() {
-
             alert('网络中断');
         });
     };

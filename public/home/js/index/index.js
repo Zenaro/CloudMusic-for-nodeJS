@@ -2,7 +2,6 @@
 *
 */
 define( function( require, exports, module ) {
-
 	function Index() {
 		this.btnDwn = '.btns .btn-down';		//宣传栏左侧的下载按钮
 		this.btnSm = '.btns .sm';				//宣传栏左侧的其他按钮
@@ -175,23 +174,19 @@ define( function( require, exports, module ) {
 			});
 
 		}).on('click', this.rankALLStore, function () {
-
-			if (!!cookie('unique') && cookie('unique') !== '') {
+			if (!!$.cookie('unique') && $.cookie('unique') !== '') {
 				var t = $(this).attr('data-type');
 				$.ajax({
-					'url': '../controller/colMusic',
-					'type': 'POST',
+					'url': '/controller/colMusic',
+					'type': 'GET',
 					'data': {
-						uid : cookie('unique'),
+						uid : $.cookie('unique'),
 						type: t
 					},
 					'success': function(res) {
-						alert(res);
+						alert(res.info);
 					}
 				});
-				// $.post('../controller/colMusic.php', {uid : cookie('unique'), type:t}, function(result) {
-				// 	alert('收藏成功');
-				// });
 			} else {
 				alert('您尚未登录');
 			}
@@ -223,16 +218,16 @@ define( function( require, exports, module ) {
 			self._appendEle( addID );
 			
 		}).on('click', this.rankLIStore, function() {
-			if ( !cookie('unique') ) {
+			if ( !$.cookie('unique') || $.cookie('unique') == '' ) {
 				alert('您尚未登录');
 
 			} else {
 				var trgid = $(this).parents('dd').attr('data-id');
 				$.get('/controller/colMusic', {
-					uid : cookie('unique'),
+					uid : $.cookie('unique'),
 					mid : trgid
-				}, function (result) {
-					alert(result);
+				}, function (res) {
+					alert(res.info);
 				});
 			}
 		});

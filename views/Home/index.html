@@ -25,11 +25,11 @@
                 <ul class="result"></ul>
             </div>
             <div class="top-user">
-                <a href="./login.html" class="user-login">登录</a>
+                <a href="./login" class="user-login">登录</a>
                 <div class="user-memb">
                     <h4>用户</h4>
                     <ul class="slide-down">
-                        <li><a href="./my.html">我的主页</a></li>
+                        <li><a href="./my">我的主页</a></li>
                         <li><a href="javascript:;" class="logout">退出</a></li>
                     </ul>
                 </div>
@@ -284,16 +284,18 @@
 </div>
 
 <script type="text/javascript" src="/seajs/sea.js"></script>
+<script type="text/javascript" src="/jquery/jquery.js"></script>
 <script type="text/javascript">
 
     //设置configuration
     seajs.config({
         base: "/",
         alias: {
-            "jquery" : "jquery/jquery.js"
+            "jquery": "jquery/jquery.js",
+            "jcookie": "jquery/jquery.cookie.js",
+            "pjax": "jquery/jquery-pjax.js"
         }
     });
-
     //引入main.js
     seajs.use('/home/js/index/main');
 

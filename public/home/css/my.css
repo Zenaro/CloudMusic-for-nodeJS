@@ -10,7 +10,6 @@
 	height: 180px;
 	float: left;
 	margin-right: 40px;
-	background: url('../image/profile.jpg') no-repeat;
 }
 .wrap-in .main-title .title-info {
 	width: 800px;
@@ -72,7 +71,7 @@
 	width: 17px;
 	height: 17px;
 	margin: 9px;
-	background: url('../image/table.png');
+	background: url('/images/sprite/table.png');
 	background-position: 0 -103px;
 }
 .wrap-in .main-mlist ul li a.icon-play:hover {
@@ -109,11 +108,11 @@
 	display: none;
 	float: left;
 	margin: 9px 0 0 8px;
-	background: url('../image/table.png');
+	background: url('/images/sprite/table.png');
 }
 .wrap-in .main-mlist ul li .col-2 a.icn-add {
 	width: 14px;
-	background: url('../image/iconplay.png');
+	background: url('/images/sprite/iconplay.png');
 	background-position: 0 -700px;
 }
 .wrap-in .main-mlist ul li .col-2 a.icn-add:hover{

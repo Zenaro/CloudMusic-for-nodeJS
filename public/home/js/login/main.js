@@ -1,8 +1,6 @@
 define ( function ( require ) {
 
-	var $ = require('jquery');
-
-	require('../common/cookie');
+	require('jcookie');
 
 	var Login = require('./login');
 	var sl = new Login();
