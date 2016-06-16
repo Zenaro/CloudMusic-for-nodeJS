@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2016-06-14 17:09:15
+-- Generation Time: 2016-06-16 07:39:58
 -- 服务器版本： 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -18,7 +18,8 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `music`
---
+CREATE database music;
+USE music;
 
 -- --------------------------------------------------------
 
@@ -80,7 +81,11 @@ INSERT INTO `app_collection` (`user_id`, `music_id`, `colDate`, `id`) VALUES
 (2, 10, '2016-02-26', 40),
 (2, 7, '2016-02-26', 39),
 (2, 9, '2016-02-26', 38),
-(2, 3, '2016-02-26', 37);
+(2, 3, '2016-02-26', 37),
+(3, 4, '2016-06-15', 50),
+(3, 6, '2016-06-15', 51),
+(3, 7, '2016-06-15', 52),
+(45, 2, '2016-06-16', 81);
 
 -- --------------------------------------------------------
 
@@ -100,7 +105,11 @@ CREATE TABLE `app_comment` (
 --
 
 INSERT INTO `app_comment` (`user_id`, `music_id`, `content`, `time`) VALUES
-(2, 24, '也许相爱很难，', '2016-06-14 00:00:00');
+(2, 24, '也许相爱很难，', '2016-06-14 00:00:00'),
+(45, 24, 'sd', '2016-06-15 20:43:29'),
+(45, 24, 'sd', '2016-06-15 20:46:36'),
+(45, 24, 'sd', '2016-06-15 20:46:45'),
+(45, 4, '好听~', '2016-06-16 13:36:13');
 
 -- --------------------------------------------------------
 
@@ -113,6 +122,14 @@ CREATE TABLE `app_friends` (
   `friend_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- 转存表中的数据 `app_friends`
+--
+
+INSERT INTO `app_friends` (`user_id`, `friend_id`) VALUES
+(45, 45),
+(45, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -122,7 +139,7 @@ CREATE TABLE `app_friends` (
 CREATE TABLE `app_Info` (
   `user_id` int(10) NOT NULL,
   `name` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(34) COLLATE utf8_unicode_ci NOT NULL
+  `image` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -130,13 +147,9 @@ CREATE TABLE `app_Info` (
 --
 
 INSERT INTO `app_Info` (`user_id`, `name`, `image`) VALUES
-(2, 'Zenaro', '../../../src/home/image/face.png'),
-(27, 'ASD', '../../../src/home/image/profile.jp'),
-(40, '33', '/image/profile.jpg'),
-(41, '44', '/image/profile.jpg'),
-(42, '55', '/image/profile.jpg'),
-(43, '66', '/image/profile.jpg'),
-(44, '88', '/image/profile.jpg');
+(2, 'Zenaro', '/images/poster/profile.jpg'),
+(27, 'ASD', '/images/poster/profile.jpg'),
+(45, '触手猴', '/images/poster/profile.jpg');
 
 -- --------------------------------------------------------
 
@@ -283,22 +296,7 @@ CREATE TABLE `app_User` (
 INSERT INTO `app_User` (`email`, `pwd`, `id`, `regDate`, `root`) VALUES
 ('572001239@qq.com', 'dcf44e9c52c45576ad75f04c37a52166', 2, '2016-01-24', 1),
 ('asd@qq.com', 'dcf44e9c52c45576ad75f04c37a52166', 27, '2016-02-26', 0),
-('1', '1', 28, '2016-06-14', 0),
-('2', '2', 30, '2016-06-14', 0),
-('2', '2', 31, '2016-06-14', 0),
-('3', '3', 32, '2016-06-14', 0),
-('4', '4', 33, '2016-06-14', 0),
-('6', '6', 34, '2016-06-14', 0),
-('7', '7', 35, '2016-06-14', 0),
-('8', '8', 36, '2016-06-14', 0),
-('9', '9', 37, '2016-06-14', 0),
-('9', '9', 38, '2016-06-14', 0),
-('22', '22', 39, '2016-06-14', 0),
-('33', '33', 40, '2016-06-14', 0),
-('44', '44', 41, '2016-06-14', 0),
-('55', '55', 42, '2016-06-14', 0),
-('66', '66', 43, '2016-06-14', 0),
-('88', '88', 44, '2016-06-14', 0);
+('123456@qq.com', '123456', 45, '2016-06-15', 0);
 
 --
 -- Indexes for dumped tables
@@ -361,7 +359,7 @@ ALTER TABLE `app_Class`
 -- 使用表AUTO_INCREMENT `app_collection`
 --
 ALTER TABLE `app_collection`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 --
 -- 使用表AUTO_INCREMENT `app_Music`
 --
@@ -381,7 +379,7 @@ ALTER TABLE `app_Singer`
 -- 使用表AUTO_INCREMENT `app_User`
 --
 ALTER TABLE `app_User`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
