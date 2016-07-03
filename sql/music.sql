@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: 2016-06-16 07:39:58
+-- Host: 127.0.0.1
+-- Generation Time: 2016-07-03 13:18:01
 -- 服务器版本： 10.1.13-MariaDB
--- PHP Version: 5.6.21
+-- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -18,16 +18,18 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `music`
+--
+
 CREATE database music;
 USE music;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_adminRnews`
+-- 表的结构 `app_adminrnews`
 --
 
-CREATE TABLE `app_adminRnews` (
+CREATE TABLE `app_adminrnews` (
   `admin_id` int(11) NOT NULL,
   `news_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -35,19 +37,19 @@ CREATE TABLE `app_adminRnews` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_Class`
+-- 表的结构 `app_class`
 --
 
-CREATE TABLE `app_Class` (
+CREATE TABLE `app_class` (
   `class_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `class_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_Class`
+-- 转存表中的数据 `app_class`
 --
 
-INSERT INTO `app_Class` (`class_name`, `class_id`) VALUES
+INSERT INTO `app_class` (`class_name`, `class_id`) VALUES
 ('up', 1),
 ('new', 2),
 ('create', 3);
@@ -109,7 +111,9 @@ INSERT INTO `app_comment` (`user_id`, `music_id`, `content`, `time`) VALUES
 (45, 24, 'sd', '2016-06-15 20:43:29'),
 (45, 24, 'sd', '2016-06-15 20:46:36'),
 (45, 24, 'sd', '2016-06-15 20:46:45'),
-(45, 4, '好听~', '2016-06-16 13:36:13');
+(45, 4, '好听~', '2016-06-16 13:36:13'),
+(51, 24, '123', '2016-06-16 21:34:54'),
+(0, 2, '', '2016-06-16 21:39:34');
 
 -- --------------------------------------------------------
 
@@ -133,64 +137,77 @@ INSERT INTO `app_friends` (`user_id`, `friend_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_Info`
+-- 表的结构 `app_info`
 --
 
-CREATE TABLE `app_Info` (
+CREATE TABLE `app_info` (
   `user_id` int(10) NOT NULL,
   `name` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `image` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_Info`
+-- 转存表中的数据 `app_info`
 --
 
-INSERT INTO `app_Info` (`user_id`, `name`, `image`) VALUES
+INSERT INTO `app_info` (`user_id`, `name`, `image`) VALUES
 (2, 'Zenaro', '/images/poster/profile.jpg'),
 (27, 'ASD', '/images/poster/profile.jpg'),
-(45, '触手猴', '/images/poster/profile.jpg');
+(45, '触手猴', '/images/poster/profile.jpg'),
+(46, '123', '../../../src/home/image/profile.jpg'),
+(47, 'ty', '../../../src/home/image/profile.jpg'),
+(48, 'aa', '../../../src/home/image/profile.jpg'),
+(49, '12', '../../../src/home/image/profile.jpg'),
+(50, '12', '../../../src/home/image/profile.jpg'),
+(51, '56', '../../../src/home/image/profile.jpg');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_Music`
+-- 表的结构 `app_music`
 --
 
-CREATE TABLE `app_Music` (
+CREATE TABLE `app_music` (
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `src` text COLLATE utf8_unicode_ci NOT NULL,
   `lyric` text COLLATE utf8_unicode_ci NOT NULL,
   `music_id` int(10) UNSIGNED NOT NULL,
-  `listeners` int(10) UNSIGNED NOT NULL
+  `listeners` int(10) UNSIGNED NOT NULL,
+  `duration` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_Music`
+-- 转存表中的数据 `app_music`
 --
 
-INSERT INTO `app_Music` (`name`, `src`, `lyric`, `music_id`, `listeners`) VALUES
-('V.A.-キミを思うメロディー', 'http://7xstax.com1.z0.glb.clouddn.com/VA-missing.mp3', '纯音乐无歌词', 2, 2500),
-('you -- Graveyard-you', 'http://7xstax.com1.z0.glb.clouddn.com/M.Graveyard-you.mp3', '纯音乐无歌词', 4, 3200),
-('ばんばんしー-in the autumn sky', 'http://7xstax.com1.z0.glb.clouddn.com/in-the-autumn-sky.mp3', '纯音乐无歌词', 11, 2233),
-('相爱很难', 'http://7xstax.com1.z0.glb.clouddn.com/lrc-love.mp3', '[ti:相爱很难(张学友梅艳芳)]\r\n[ar:梅艳芳]\r\n[al:]\r\n[00:03.69] 词曲：作曲／编曲：陈辉阳 填词：林夕\r\n[00:19.78] 女：最好 有生一日都爱下去\r\n[00:26.69]  但谁人 能将恋爱当做终生兴趣\r\n[00:33.75] 男：生活 其实旨在找到个伴侣\r\n[00:40.76]  面对现实 热恋很快变长流细水\r\n[00:47.03] 女：可惜我 不智或侥倖\r\n[00:50.50]  对火花天生敏感\r\n[00:54.80] 男：不过 两只手拉得太紧\r\n[00:58.71] 合：爱到过了界那对爱人\r\n[01:01.73]  同时亦最易变成一对敌人\r\n[01:10.79] 女：也许相爱很难\r\n[01:10.50]  就难在其实双方各有各寄望\r\n[01:15.77]  怎么办\r\n[01:15.44] 男：要单恋都难\r\n[01:17.46]  受太大的礼会内疚却也无力归还\r\n[01:23.82] 女：也许不爱不难\r\n[01:25.68]  但如未成佛升仙也会怕\r\n[01:29.51]  爱情前途黯淡\r\n[01:31.96] 男：爱不爱都难\r\n[01:32.81]  未快乐先有责任给予对方面露欢颜\r\n[01:37.48] 女：得到浪漫 又要有空间\r\n[01:41.02] 男：得到定局 却怕去到终站\r\n[01:44.30] 合：然后付出多得到少不介意豁达\r\n[01:48.23]  又担心 有人看不过眼\r\n[02:04.47] 女：可惜我 不智或侥倖\r\n[02:07.22]  对火花天生敏感\r\n[02:11.59] 男：不过 两只手拉得太紧\r\n[02:14.41] 合：爱到过了界那对爱人\r\n[02:17.36]  同时亦最易变成一对敌人\r\n[02:25.95] 女：也许相爱很难\r\n[02:27.69]  就难在其实双方各有各寄望\r\n[02:31.15]  怎么办\r\n[02:32.03] 男：要单恋都难\r\n[02:34.74]  受太大的礼会内疚却也无力归还\r\n[02:39.81] 女：也许不爱不难\r\n[02:41.14]  但如未成佛升仙也会怕\r\n[02:44.29]  爱情前途黯淡\r\n[02:46.90] 男：爱不爱都难\r\n[02:48.93]  未快乐先有责任给予对方面露欢颜\r\n[02:53.14] 女：得到浪漫 又要有空间\r\n[02:56.24] 男：得到定局 却怕去到终站\r\n[03:00.91] 合：然后付出多得到少不介意豁达\r\n[03:04.70]  又担心 有人看不过眼\r\n[03:10.18] 合：无论热恋中失恋中\r\n[03:13.96] 都永远记住第一戒\r\n[03:18.64] 别要张开双眼', 24, 3500);
+INSERT INTO `app_music` (`name`, `src`, `lyric`, `music_id`, `listeners`, `duration`) VALUES
+('V.A.-キミを思うメロディー', 'http://7xstax.com1.z0.glb.clouddn.com/VA-missing.mp3', '纯音乐无歌词', 2, 2500, 102),
+('you -- Graveyard-you', 'http://7xstax.com1.z0.glb.clouddn.com/M.Graveyard-you.mp3', '纯音乐无歌词', 4, 3200, 215),
+('ばんばんしー-in the autumn sky', 'http://7xstax.com1.z0.glb.clouddn.com/in-the-autumn-sky.mp3', '纯音乐无歌词', 11, 2233, 0),
+('相爱很难', 'http://7xstax.com1.z0.glb.clouddn.com/lrc-love.mp3', '[ti:相爱很难(张学友梅艳芳)]\r\n[ar:梅艳芳]\r\n[al:]\r\n[00:03.69] 词曲：作曲／编曲：陈辉阳 填词：林夕\r\n[00:19.78] 女：最好 有生一日都爱下去\r\n[00:26.69]  但谁人 能将恋爱当做终生兴趣\r\n[00:33.75] 男：生活 其实旨在找到个伴侣\r\n[00:40.76]  面对现实 热恋很快变长流细水\r\n[00:47.03] 女：可惜我 不智或侥倖\r\n[00:50.50]  对火花天生敏感\r\n[00:54.80] 男：不过 两只手拉得太紧\r\n[00:58.71] 合：爱到过了界那对爱人\r\n[01:01.73]  同时亦最易变成一对敌人\r\n[01:10.79] 女：也许相爱很难\r\n[01:10.50]  就难在其实双方各有各寄望\r\n[01:15.77]  怎么办\r\n[01:15.44] 男：要单恋都难\r\n[01:17.46]  受太大的礼会内疚却也无力归还\r\n[01:23.82] 女：也许不爱不难\r\n[01:25.68]  但如未成佛升仙也会怕\r\n[01:29.51]  爱情前途黯淡\r\n[01:31.96] 男：爱不爱都难\r\n[01:32.81]  未快乐先有责任给予对方面露欢颜\r\n[01:37.48] 女：得到浪漫 又要有空间\r\n[01:41.02] 男：得到定局 却怕去到终站\r\n[01:44.30] 合：然后付出多得到少不介意豁达\r\n[01:48.23]  又担心 有人看不过眼\r\n[02:04.47] 女：可惜我 不智或侥倖\r\n[02:07.22]  对火花天生敏感\r\n[02:11.59] 男：不过 两只手拉得太紧\r\n[02:14.41] 合：爱到过了界那对爱人\r\n[02:17.36]  同时亦最易变成一对敌人\r\n[02:25.95] 女：也许相爱很难\r\n[02:27.69]  就难在其实双方各有各寄望\r\n[02:31.15]  怎么办\r\n[02:32.03] 男：要单恋都难\r\n[02:34.74]  受太大的礼会内疚却也无力归还\r\n[02:39.81] 女：也许不爱不难\r\n[02:41.14]  但如未成佛升仙也会怕\r\n[02:44.29]  爱情前途黯淡\r\n[02:46.90] 男：爱不爱都难\r\n[02:48.93]  未快乐先有责任给予对方面露欢颜\r\n[02:53.14] 女：得到浪漫 又要有空间\r\n[02:56.24] 男：得到定局 却怕去到终站\r\n[03:00.91] 合：然后付出多得到少不介意豁达\r\n[03:04.70]  又担心 有人看不过眼\r\n[03:10.18] 合：无论热恋中失恋中\r\n[03:13.96] 都永远记住第一戒\r\n[03:18.64] 别要张开双眼', 24, 3500, 215),
+('Glassy Sky (琉璃夜空)--《东京喰种第二话》', 'http://7xstax.com1.z0.glb.clouddn.com/DonnaBurke-GlassySky.mp3', '无歌词', 28, 23333, 295),
+('V.A.--勿念他归', 'http://7xstax.com1.z0.glb.clouddn.com/V.A.--qianBenYing.mp3', '纯音乐无歌词', 27, 3306, 354),
+('Merry Christmas Mr.Larance', 'http://7xstax.com1.z0.glb.clouddn.com/MerryChristmasMr.Lawrence.mp3', '纯音乐无歌词', 29, 5656, 287),
+('Unravel-piano', 'http://7xstax.com1.z0.glb.clouddn.com/Unravel-piano.mp3', '纯音乐无歌词', 30, 4564, 248),
+('Five Hundred Miles', 'http://7xstax.com1.z0.glb.clouddn.com/FiveHundredMiles.mp3', '暂无', 31, 3344, 207),
+('月灯りふんわり落ちてくる夜', 'http://7xstax.com1.z0.glb.clouddn.com/YueDengZhiXia.mp3', '暂无', 32, 6666, 256);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_musicRclass`
+-- 表的结构 `app_musicrclass`
 --
 
-CREATE TABLE `app_musicRclass` (
+CREATE TABLE `app_musicrclass` (
   `class_id` int(11) NOT NULL,
   `music_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_musicRclass`
+-- 转存表中的数据 `app_musicrclass`
 --
 
-INSERT INTO `app_musicRclass` (`class_id`, `music_id`) VALUES
+INSERT INTO `app_musicrclass` (`class_id`, `music_id`) VALUES
 (1, 2),
 (1, 4),
 (1, 11),
@@ -202,15 +219,34 @@ INSERT INTO `app_musicRclass` (`class_id`, `music_id`) VALUES
 (3, 2),
 (3, 4),
 (3, 11),
-(3, 24);
+(3, 24),
+(2, 27),
+(1, 28),
+(1, 27),
+(1, 29),
+(1, 30),
+(1, 31),
+(1, 32),
+(2, 28),
+(2, 27),
+(2, 29),
+(2, 30),
+(2, 31),
+(2, 32),
+(3, 28),
+(3, 27),
+(3, 29),
+(3, 30),
+(3, 31),
+(3, 32);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_News`
+-- 表的结构 `app_news`
 --
 
-CREATE TABLE `app_News` (
+CREATE TABLE `app_news` (
   `title` text COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `id` int(11) NOT NULL,
@@ -219,10 +255,10 @@ CREATE TABLE `app_News` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_News`
+-- 转存表中的数据 `app_news`
 --
 
-INSERT INTO `app_News` (`title`, `content`, `id`, `type`, `pubDate`) VALUES
+INSERT INTO `app_news` (`title`, `content`, `id`, `type`, `pubDate`) VALUES
 ('迎新年，全民福利活动Let''s Go！', '内容我已经想好了', 1, '活动', '2016-01-08'),
 ('银翼邮递员传递祝福！圣诞祝福征集正式开始', '下星期有活动，嗯', 2, '活动', '2016-01-07'),
 ('12·12线上活动，买赠大行动！', '双十二买增大活动', 3, '焦点', '2015-11-19'),
@@ -234,10 +270,10 @@ INSERT INTO `app_News` (`title`, `content`, `id`, `type`, `pubDate`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_Singer`
+-- 表的结构 `app_singer`
 --
 
-CREATE TABLE `app_Singer` (
+CREATE TABLE `app_singer` (
   `singer_id` int(11) NOT NULL,
   `singer_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `counrtry` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
@@ -245,43 +281,54 @@ CREATE TABLE `app_Singer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_Singer`
+-- 转存表中的数据 `app_singer`
 --
 
-INSERT INTO `app_Singer` (`singer_id`, `singer_name`, `counrtry`, `birthday`) VALUES
+INSERT INTO `app_singer` (`singer_id`, `singer_name`, `counrtry`, `birthday`) VALUES
 (1, 'V.A.', 'Japan', '2015-11-04'),
 (2, '《寒蝉鸣泣之时》原生', 'Japan', '2016-05-18'),
 (3, '秋姉妹のなく頃に', 'Japan', '2016-05-13'),
-(4, '李克勤--容祖儿', '香港', '2016-02-09');
+(4, '李克勤--容祖儿', '香港', '2016-02-09'),
+(5, 'Donna Burke', 'Japan', '1988-10-17'),
+(6, '坂本龙一', 'Japan', '1973-06-16'),
+(7, 'Justin Timberlake', '==', '1978-06-02'),
+(8, 'Animenzzz', 'Japan', '1983-06-09'),
+(9, 'やなぎなぎ', 'Japan', '1999-06-15');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_singerRmusic`
+-- 表的结构 `app_singerrmusic`
 --
 
-CREATE TABLE `app_singerRmusic` (
+CREATE TABLE `app_singerrmusic` (
   `singer_id` int(11) NOT NULL,
   `music_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_singerRmusic`
+-- 转存表中的数据 `app_singerrmusic`
 --
 
-INSERT INTO `app_singerRmusic` (`singer_id`, `music_id`) VALUES
+INSERT INTO `app_singerrmusic` (`singer_id`, `music_id`) VALUES
 (1, 2),
 (2, 4),
 (3, 11),
-(4, 24);
+(4, 24),
+(1, 27),
+(5, 28),
+(6, 29),
+(8, 30),
+(7, 31),
+(9, 32);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `app_User`
+-- 表的结构 `app_user`
 --
 
-CREATE TABLE `app_User` (
+CREATE TABLE `app_user` (
   `email` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `pwd` char(34) COLLATE utf8_unicode_ci NOT NULL,
   `id` int(11) NOT NULL,
@@ -290,22 +337,28 @@ CREATE TABLE `app_User` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 转存表中的数据 `app_User`
+-- 转存表中的数据 `app_user`
 --
 
-INSERT INTO `app_User` (`email`, `pwd`, `id`, `regDate`, `root`) VALUES
+INSERT INTO `app_user` (`email`, `pwd`, `id`, `regDate`, `root`) VALUES
 ('572001239@qq.com', 'dcf44e9c52c45576ad75f04c37a52166', 2, '2016-01-24', 1),
 ('asd@qq.com', 'dcf44e9c52c45576ad75f04c37a52166', 27, '2016-02-26', 0),
-('123456@qq.com', '123456', 45, '2016-06-15', 0);
+('123456@qq.com', '123456', 45, '2016-06-15', 0),
+('123@qq.com', 'e10adc3949ba59abbe56e057f20f883e', 46, '2016-06-16', 0),
+('ty@qq.com', '36f3af6226e0b5303e19b824e7442272', 47, '2016-06-16', 0),
+('aa@qq.com', '4124bc0a9335c27f086f24ba207a4912', 48, '2016-06-16', 0),
+('12', 'c20ad4d76fe97759aa27a0c99bff6710', 49, '2016-06-16', 0),
+('45', '6c8349cc7260ae62e3b1396831a8398f', 50, '2016-06-16', 0),
+('56', '9f61408e3afb633e50cdf1b20de6f466', 51, '2016-06-16', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `app_Class`
+-- Indexes for table `app_class`
 --
-ALTER TABLE `app_Class`
+ALTER TABLE `app_class`
   ADD PRIMARY KEY (`class_id`);
 
 --
@@ -315,34 +368,34 @@ ALTER TABLE `app_collection`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `app_Info`
+-- Indexes for table `app_info`
 --
-ALTER TABLE `app_Info`
+ALTER TABLE `app_info`
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `app_Music`
+-- Indexes for table `app_music`
 --
-ALTER TABLE `app_Music`
+ALTER TABLE `app_music`
   ADD PRIMARY KEY (`music_id`);
 
 --
--- Indexes for table `app_News`
+-- Indexes for table `app_news`
 --
-ALTER TABLE `app_News`
+ALTER TABLE `app_news`
   ADD PRIMARY KEY (`type`,`pubDate`,`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indexes for table `app_Singer`
+-- Indexes for table `app_singer`
 --
-ALTER TABLE `app_Singer`
+ALTER TABLE `app_singer`
   ADD PRIMARY KEY (`singer_id`);
 
 --
--- Indexes for table `app_User`
+-- Indexes for table `app_user`
 --
-ALTER TABLE `app_User`
+ALTER TABLE `app_user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
@@ -351,9 +404,9 @@ ALTER TABLE `app_User`
 --
 
 --
--- 使用表AUTO_INCREMENT `app_Class`
+-- 使用表AUTO_INCREMENT `app_class`
 --
-ALTER TABLE `app_Class`
+ALTER TABLE `app_class`
   MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- 使用表AUTO_INCREMENT `app_collection`
@@ -361,25 +414,25 @@ ALTER TABLE `app_Class`
 ALTER TABLE `app_collection`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 --
--- 使用表AUTO_INCREMENT `app_Music`
+-- 使用表AUTO_INCREMENT `app_music`
 --
-ALTER TABLE `app_Music`
-  MODIFY `music_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+ALTER TABLE `app_music`
+  MODIFY `music_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
--- 使用表AUTO_INCREMENT `app_News`
+-- 使用表AUTO_INCREMENT `app_news`
 --
-ALTER TABLE `app_News`
+ALTER TABLE `app_news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- 使用表AUTO_INCREMENT `app_Singer`
+-- 使用表AUTO_INCREMENT `app_singer`
 --
-ALTER TABLE `app_Singer`
-  MODIFY `singer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `app_singer`
+  MODIFY `singer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- 使用表AUTO_INCREMENT `app_User`
+-- 使用表AUTO_INCREMENT `app_user`
 --
-ALTER TABLE `app_User`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+ALTER TABLE `app_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
